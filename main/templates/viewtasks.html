@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mainTitle">Tareas</h1>
+<div class="new"><p class="create">Crear nueva tarea +</p></div>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" id="csrf-token">
+{% for variable in task %}
+
+<div class="tarea">
+    <input type="hidden" name="idTarea" value="{{variable.id}}" id="id-tarea">
+    <div class="info">
+        <div class="titulo">
+            <p class="tituloTarea">{{variable.name}}</p>
+            <div class="botones">
+                <i class="icon fa-solid fa-pencil"></i>
+                <i class="icon fa-solid fa-trash-can"></i>
+            </div>
+        </div>
+        <p class="desc">{{variable.description}}</p>
+    </div>
+</div>
+
+{% endfor %}
+
+<div class="separator"></div>
+
+{% endblock %}
