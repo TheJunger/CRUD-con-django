@@ -7,9 +7,6 @@ from .models import Task
 import json
 # Create your views here.
 
-def main(request):
-    return render(request, 'index.html')
-
 def createTask(request):
     if request.method == 'GET':
         print('get')
