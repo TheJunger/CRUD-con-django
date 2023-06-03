@@ -14,8 +14,8 @@ def createTask(request):
     if request.method == 'GET':
         print('get')
         csrf_token = get_token(request)
-        #return JsonResponse({'token':csrf_token})
-        return render(request, 'index.html')
+        return JsonResponse({'token':csrf_token})
+        #return render(request, 'index.html')
     else:
         print('post')
         data = json.loads(request.body.decode())
@@ -59,4 +59,5 @@ def deleteTask(request):
             print(data.get('id'))
             tarea = Task.objects.get(id=data.get('id'))
             print(tarea)
+            tarea.delete()
             return redirect('/view_tasks')

@@ -3,7 +3,6 @@
 {% block content %}
 <h1 class="mainTitle">Tareas</h1>
 <div class="new"><p class="create">Crear nueva tarea +</p></div>
-<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" id="csrf-token">
 {% for variable in task %}
 
 <div class="tarea">
